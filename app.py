@@ -12,6 +12,8 @@ app = Flask(__name__)
 
 @app.route("/", methods=['GET', 'POST'])
 def hello():
-    if json.loads(request.data)['text']:
+    if 'text' in json.loads(request.data):
         return 'You sent me' + json.loads(request.data)['text']
+    else:
+        raise Exception(request.data)
     return "Hello, I'm still in alpha-test mode, please, don't speak to me if you are not my developer."
