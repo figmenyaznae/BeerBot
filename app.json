@@ -1,0 +1,12 @@
+{
+  "name": "BeerBot",
+  "description": "Telegram bot for beer meetups on Heroku ",
+  "keywords": [
+    "flask",
+    "python",
+    "beer",
+    "telegram",
+    "bot"
+  ],
+  "repository": "https://github.com/figmenyaznae/beerbot"
+}
