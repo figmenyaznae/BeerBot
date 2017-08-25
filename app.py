@@ -1,7 +1,9 @@
 from flask import Flask
+import requests
 
+BOT_TOKEN = "398858338:AAGMhLrE_eNfLwKOfeFQuLhlEH7g878_fOg"
 URL = "https://api.telegram.org/bot%s/" % BOT_TOKEN
-MyURL = https://fb1488bot.herokuapp.com/
+MyURL = "https://fb1488bot.herokuapp.com/"
 
 api = requests.Session()
 set_hook = api.get(URL + "setWebhook?url=%s" % MyURL)
