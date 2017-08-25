@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import requests
 
 BOT_TOKEN = "398858338:AAGMhLrE_eNfLwKOfeFQuLhlEH7g878_fOg"
@@ -10,11 +10,8 @@ set_hook = api.get(URL + "setWebhook?url=%s" % MyURL)
 
 app = Flask(__name__)
 
-@app.route("/start", methods=['GET', 'POST'])
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def hello():
-    return "Hello, I'm still in alpha-test mode, please, don't speak to me if you are not my developer."
+    print request.data
 
-@app.route("/help", methods=['GET', 'POST'])
-def help():
-	return "TBA"
+    return "Hello, I'm still in alpha-test mode, please, don't speak to me if you are not my developer."
