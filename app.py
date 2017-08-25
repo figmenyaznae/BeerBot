@@ -10,11 +10,11 @@ set_hook = api.get(URL + "setWebhook?url=%s" % MyURL)
 
 app = Flask(__name__)
 
-@app.route("/start")
+@app.route("/start", methods=['GET', 'POST'])
 @app.route("/")
 def hello():
     return "Hello, I'm still in alpha-test mode, please, don't speak to me if you are not my developer."
 
-@app.route("/help")
+@app.route("/help", methods=['GET', 'POST'])
 def help():
 	return "TBA"
