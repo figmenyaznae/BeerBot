@@ -1,4 +1,6 @@
 *.pyc
+*.db
+settings.py
 
 bin/
 include/
