@@ -9,10 +9,10 @@ class MeetingAttendant(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
-    meeting_id = Column(Integer, ForeignKey('meetings.id'))
+    meeting_id = Column(Integer, ForeignKey('meetings.id'), primary_key=True)
     meeting = relationship("Meeting", backref="attendants")
     status = Column(Integer, nullable=False)
 
     def __repr__(self):
-        return u"<Attendance(id={}, meeting={}, status={})>".format(
-            self.id, self.meeting_id, self.status.encode('ascii', 'ignore'))
+        return u"<Attendance(id={}, name={} meeting={}, status={})>".format(
+            self.id, self.name, self.meeting_id, self.status)

@@ -10,4 +10,4 @@ class Meeting(Base):
 
     def __repr__(self):
         return "<Meeting(id={}, date={})>".format(
-            self.meeting_id, self.date_of_meeting)
+            self.id, self.date)
