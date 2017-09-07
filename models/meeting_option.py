@@ -13,5 +13,5 @@ class MeetingOption(Base):
     date = Column(Date)
 
     def __repr__(self):
-        return u"<Option(id={}, name={} user={}, date={})>".format(
-            self.id, self.name, self.user_id, self.date)
+        return u"<Option(id={}, name={} user={}, message={}, date={})>".format(
+            self.id, self.name, self.user_id, self.message_id, self.date)

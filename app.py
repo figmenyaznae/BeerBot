@@ -115,17 +115,28 @@ def parse_meeting_option(message):
         chat_id=message.chat.id,
         user_id=message.from_user.id
       ).all():
+        if (option.date is None or option.name is None) and \
+          message.text[11:].strip() in [
+            'я передумал',
+            'отставить',
+            'отбой',
+            'забей'
+          ]:
+            session.delete(option)
+            break
         if option.date is None:
             try:
                 option.date = parser.parse(message.text[11:].strip())
                 session.commit()
             except:
                 bot.send_message(message.chat.id,
-                    '[{}](tg://user?id={}), не могу распознать дату, повторите',format(
+                    '[{}](tg://user?id={}), не могу распознать дату, повторите'.format(
                         get_user_name(message),
-                        message.from_user.id,
-                        reply_to_message_id=option.message_id
-                    ))
+                        message.from_user.id
+                    ),                
+                    parse_mode = 'Markdown',
+                    reply_to_message_id=option.message_id
+                )
             finally:
                 break
         if option.name is None:
@@ -169,7 +180,7 @@ def is_polling(message):
     else:
         return False
 
-@bot.message_handler(regexp='(?m)^@fb1488_bot')
+@bot.message_handler(regexp='^@fb1488_bot')
 def bot_mentioned(message):
     session = Session()
     chat = session.query(Status).get(message.chat.id)
