@@ -1,7 +1,8 @@
-from sqlalchemy import Column, Integer, String, Boolean, Date
+from sqlalchemy import Column, Integer, String, Boolean
 from .base import Base
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
+
 
 class Status(Base):
     __tablename__ = 'status'

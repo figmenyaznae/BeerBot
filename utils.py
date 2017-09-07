@@ -16,3 +16,15 @@ def get_user_name(message):
 
 def status_to_int(status):
     return 1 if status else 0
+
+def int_to_status(status):
+    return '🍻' if status else '🥃'
+
+def text_to_status(text):
+    status = None
+    if text == '🍻':
+        status = True
+    elif text == '🥃': 
+        status = False
+
+    return status
